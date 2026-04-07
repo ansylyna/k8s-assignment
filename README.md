@@ -1,22 +1,30 @@
-# Flask Web Application Deployment
+# Kubernetes Workloads & Service Exposure
 
-This repository contains a containerized Flask application deployed with an Nginx reverse proxy and optimized using Docker multi-stage builds.
+This project demonstrates Kubernetes concepts using a Dockerized Python Flask application.
 
-## 🚀 Features
-- **Backend:** Python Flask API
-- **Reverse Proxy:** Nginx (Routing Port 80 to Port 5000)
-- **Containerization:** Docker
-- **Optimization:** Multi-stage build for reduced image size
+## Features
+- Deployment with multiple replicas
+- Pod inspection and logs
+- ClusterIP Service (internal communication)
+- NodePort Service (external access)
+- Scaling and self-healing
+- StatefulSet with stable pod identity
 
-## 📂 Project Structure
-- `app.py`: The main Flask application.
-- `nginx.conf`: Nginx configuration for the reverse proxy.
-- `Dockerfile`: Standard Docker build.
-- `Dockerfile.multi`: Optimized multi-stage Docker build.
+## Technologies Used
+- Kubernetes (Minikube)
+- Docker
+- Python Flask
+- Ubuntu VM
 
-## 🔧 How to Run
+## How to Run
+1. Apply deployment:
+   kubectl apply -f deployment.yaml
 
-### 1. Standard Docker Build
-```bash
-docker build -t flask-app .
-docker run -d -p 5000:5000 --name web-container flask-app
+2. Apply service:
+   kubectl apply -f service.yaml
+
+3. Access using NodePort:
+   kubectl get svc
+
+## Author
+ansy
